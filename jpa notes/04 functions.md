@@ -24,3 +24,17 @@ Following is a list of famous methods related to spring data jpa.
 * count()
 * existById()
 
+## Query Methods
+
+Spring boot JPA can interpret method name to queries.
+
+### Rules to create query methods
+1. Method name should start with one of the following prefixes:
+   * find...by
+   * read...by
+   * query...by
+   * count...by
+   * get...by
+
+
+
