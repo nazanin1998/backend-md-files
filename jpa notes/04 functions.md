@@ -1,8 +1,8 @@
-# Spring Data JPA Repository Methods
+# Spring Data JPA Methods
 
 Here we will discover functions related to repository.
 
-## Famous functions
+## Repository Methods
 
 Following is a list of famous methods related to spring data jpa.
 * save()
@@ -18,8 +18,9 @@ Following is a list of famous methods related to spring data jpa.
         return customerRepository.findAll(sort);
     }
   ```
-* deleteById()
+* deleteById(). This method performs two queries, first select and then delete
 * deleteAll()
-* delete()
-* test
-* 
+* delete(). This method performs only one query, which is delete.
+* count()
+* existById()
+
