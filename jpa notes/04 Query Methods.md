@@ -231,3 +231,53 @@ public ResponseEntity<?> findByNameLike(
           .body(customerService.findByNameLike("%" +  namePortion + "%"));
 }
 ```
+
+### Query Methods - find by between
+
+This query method is used to find entities with field values between input thresholds.
+Following is the sample code.
+
+```
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
+
+    List<Customer> findByAgeBetween(int ageMinThreshold, int ageMaxThreshold);
+
+}
+```
+
+### Query Method - count by ... / count by ... between
+
+Here is code example that presents count query methods.
+
+```
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
+
+    Long countByAgeBetween(int ageMinThreshold, int ageMaxThreshold);
+
+    Long countByNameIgnoreCase(String name);
+
+}
+```
+
+### Query Method - Find By ... In
+
+Find By ... IN, finds all entities that has the matching field value with the input list.
+
+```
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
+
+    List<Customer> findByNameIgnoreCaseIn(List<String> names);
+}
+```
+
+### Query Method - Top / First
+
+By adding Top/First Following a number after the _Find_ keyword, you can limit the 
+retrieved results. The following code snippet presents an example for this topic.
+
+```
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
+
+    List<Customer> findTop2ByNameIgnoreCaseIn(List<String> names, Sort sort);
+}
+```
