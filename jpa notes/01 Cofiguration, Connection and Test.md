@@ -16,7 +16,7 @@ In order tot connect to MySQL database you need the following dependeicies.
 * MySQL Driver
 
 ## Configurations
-Following are necessary cofigurations for connecting the project to the MySQL database.
+Following are necessary configurations for connecting the project to the MySQL database.
 You need to define the database url with the options, username, password and data defination language (DDL) mode.
 
 ```

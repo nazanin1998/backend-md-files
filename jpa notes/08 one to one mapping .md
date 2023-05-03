@@ -16,9 +16,9 @@ In order to build a one-to-one relationship between two entities, follow the nex
 ### JPA Supported Cascade Types
 
 * CascadeType.PERSIST - save() and persist() operations cascade to related entities.
-* CascadeType.MERGE - 
+* CascadeType.MERGE - update() operation cascades to the related entities.
 * CascadeType.REFRESH
-* CascadeType.REMOVE - delete() operation cascades to related entities.
+* CascadeType.REMOVE - delete() operation cascades to the related entities.
 * CascadeType.DETACH
 * CascadeType.ALL - All of the above ones are shorthanded in this item.
 
