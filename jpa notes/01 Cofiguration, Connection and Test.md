@@ -29,10 +29,34 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
 ```
 
+Available options for ddl mode are:
+* __none__: hibernate is not going to create table for you. you have to create all tables manually
+* __create-only__: tells hibernate to generate the db schema from the entity model.
+* __create__: tells hibernate to drop the db schema and recreate it afterward using the entity model as a reference.
+* __drop__: tells hibernate to drop the db schema using the entity model as a reference for the DDL DROP statements.
+* __create-drop__: combine create and drop toghter.
+* __validate__: just validate the underlying db schema against the entity mapping .
+* __update__: update the existing schema based on entity mapping.
+
+To show all the __sql statements log__ write the first line. and the second line format all these logs.
+```
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+```
+# Project Structure
+1. First you should create new package named _domain_ or _entity_ or _model_ to put all JPA entities in it.
+2. Second create _repository_ package to access database.
+
 ## Create Domain
-Here we cosider creating a sample domain, which will be mapped to a table in the database.
+Here we consider creating a sample domain, which will be mapped to a table in the database.
+
+Use __@Entity__ annotaion that imported from __jakarta.persistence__ to specify that this class is JPA entity.
+And for each entity we need __primary key__, so use __@Id__ annotaion for id variable.
 
 ```
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 @Data
 @Entity
 @NoArgsConstructor
@@ -48,6 +72,8 @@ public class Customer {
     private int age;
 }
 ```
+Now if you run project and _ddl-auto_ parameter of _application.properties_ has been set to _update_, Product table will create automatically in MySQL.
+
 
 ## Create Repository
 In order to access the database you need to create a repository for each created domain. Following is repository for the above domain.
