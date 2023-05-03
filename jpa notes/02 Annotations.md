@@ -4,13 +4,27 @@ JPA has lots of annotations. Here we will cover most useful of them
 
 ## @Entity
 By putting this annotation over a class, JPA will make a table according to the class variables in the database. Automatically, the name of the table will be lower case and combined words will be separated by dash.
-
+underscore
 ## @Id 
 This annotation is necessary for an entity to define its primary key.
 
 ## @GeneratedValue(strategy = GenerationType.AUTO)
 This annotation will make the primary key to be produced automatically.
 
+## @Table
+use _@Table_ annotation before entity class to define some customization on it.
+For example, write unique fields in _uniqueConstraints_ parameter of _@Table_ as show in below.
+
+```
+@Table(
+        name = "products",
+        schema = "ecommerce",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "sku_unique", columnNames = "stock_keeping_unit"),
+                @UniqueConstraint(name = "name_unique", columnNames = "name"),
+        }
+)
+```
 ## @Column(unique = true)
 By this means you can make a field of entity unique.
 
