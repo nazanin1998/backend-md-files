@@ -24,7 +24,7 @@ __Note__: Chocolatey is the optimal installation method.
 ---------------------
 ## 1-2. Using the official installer 
 
-Prerequires:
+Prerequisites:
 
 1. Erlang must be installed using an administrative account.
 2. It is highly recommended that RabbitMQ is also installed as an administrative account.
