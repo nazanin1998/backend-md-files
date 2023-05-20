@@ -1,16 +1,19 @@
 # One To One Mapping
 
 Here we will introduce one to one mapping in spring data jpa. 
+Source entity is parnet entity and target entity is child entity.
 
 ## How it's done?
 
 In order to build a one-to-one relationship between two entities, follow the next steps.
 
-1. Add the associate entity as a field of the source entity.
+1. Add the associate entity as a field of the __source entity__ by _@JoinColumn_. In this annotation you can specify reference entity column name by _referencedColumnName_ parameter and forignKey column name in source entity object by _name_ parameter.
 2. Annotate the added field with the following annotations.
+3. Use _@OneToOne_ to define cascade type and relation type of one to one with another object.
+
     ```
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(referencedColumnName = "id")
+    @JoinColumn(referencedColumnName = "id", name = "city_id")
     ```
 
 ### JPA Supported Cascade Types
